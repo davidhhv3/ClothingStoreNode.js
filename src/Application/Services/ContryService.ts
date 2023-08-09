@@ -3,21 +3,21 @@ import { IContryService } from "../../Domain/Interfaces/IContryService";
 
 export class CountryService implements IContryService{
 
-    GetCountry(id: number): Country {
+    async GetCountry(id: number):Promise<Country>  {
         const country : Country = new Country(1, "Country 1");
         return country;
     }
-    InsertCountry(country: Country): boolean {        
+    async InsertCountry(country: Country):Promise<boolean>{        
         return true;
     }
-    UpdateCountry(country: Country): boolean {
+    async UpdateCountry(country: Country):Promise<boolean> {
         return true;
     }
-    DeleteCountry(id: number): boolean {
+    async DeleteCountry(id: number):Promise<boolean> {
         return true;
     }
 
-    GetCountries(): Country[] {
+    async GetCountries():Promise<Country[]> {
         const countries: Country[] = [
             new Country(1, "Country 1"),
             new Country(2, "Country 2"),
@@ -25,5 +25,4 @@ export class CountryService implements IContryService{
         ];
         return countries;      
     }
-
 }

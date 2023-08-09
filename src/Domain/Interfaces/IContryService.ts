@@ -1,9 +1,9 @@
 import { Country } from "../Entities/Country ";
 
 export interface IContryService{
-    GetCountries(): Country[];
-    GetCountry(id: number): Country;
-    InsertCountry(country: Country): boolean;
-    UpdateCountry(country: Country): boolean;
-    DeleteCountry(id: number): boolean;      
+    GetCountries():Promise<Country[]>;
+    GetCountry(id: number):Promise<Country>;
+    InsertCountry(country: Country):Promise<boolean>;
+    UpdateCountry(country: Country):Promise<boolean>;
+    DeleteCountry(id: number):Promise<boolean>;      
 }

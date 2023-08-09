@@ -11,30 +11,30 @@ export class CountryController{
     }
 
     async GetCountries(req: Request, res: Response){
-        const countries:Country[] = this.countryService.GetCountries();
+        const countries:Country[] = await this.countryService.GetCountries();
         res.status(200).send(countries); 
     }
 
     async GetCountry(req: Request, res: Response){
         const id:number = parseInt(req.params.id); 
-        const country:Country = this.countryService.GetCountry(id);
+        const country:Country =await  this.countryService.GetCountry(id);
         res.status(200).send(country); 
     }
 
     async CreateCountry(req: Request, res: Response){       
-        const response:boolean = this.countryService.InsertCountry(req.body);
+        const response:boolean = await this.countryService.InsertCountry(req.body);
         res.status(200).send(response);
     }
 
     async UpdateCountry(req: Request, res: Response){
         const id:number = parseInt(req.params.id); 
-        const response:boolean = this.countryService.UpdateCountry(req.body);
+        const response:boolean = await this.countryService.UpdateCountry(req.body);
         res.status(200).send(response);
     }
 
     async DeleteCountry(req: Request, res: Response){
         const id:number = parseInt(req.params.id);       
-        const response:boolean = this.countryService.DeleteCountry(id);
+        const response:boolean = await this.countryService.DeleteCountry(id);
         res.status(200).send(response);
     }
 }
